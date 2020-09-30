@@ -1,0 +1,98 @@
+.header {
+  padding: 18px;
+  font-size: 18px;
+  color: red;
+  font-weight: bold;
+}
+
+.insert-post {
+  display: flex;
+  width: 100%;
+  .icon {
+    padding-left: 15px;
+    padding-right: 15px;
+    img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+  }
+  .detail {
+    flex: 1;
+    padding-right: 20px;
+    .detail-image {
+      display: flex;
+      width: 100%;
+      div {
+        width: 50%;
+      }
+      .upload {
+        padding-left: 25px;
+        div {
+          border: dotted 2px white;
+          width: 100%;
+          height: 100%;
+        }
+        .x {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          img {
+            height: 90px;
+          }
+        }
+      }
+    }
+  }
+  input[type="text"] {
+    width: 100%;
+    padding: 3px;
+    margin-bottom: 15px;
+  }
+  textarea {
+    padding: 3px;
+    width: 100%;
+  }
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  font-weight: bold;
+  color: white;
+  background-color: red;
+  display: inline-block;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  color: black;
+  background-color: lightgreen;
+  transition: all 0.5s ease-in;
+}
+
+button {
+  border: none;
+  margin-left: 80px;
+  margin-top: 15px;
+  padding: 8px;
+  color: white;
+  background-color: red;
+  cursor: pointer;
+}
+
+button:hover {
+  color: black;
+  background-color: lightgreen;
+  transition: all 0.5s ease-in;
+}

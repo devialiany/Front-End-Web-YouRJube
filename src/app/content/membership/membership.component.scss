@@ -1,0 +1,99 @@
+.header {
+  padding: 18px;
+  font-size: 24px;
+  color: red;
+  font-weight: bold;
+  animation: blinkingText 1.2s infinite;
+}
+
+.content {
+  padding: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer {
+  padding: 18px;
+  display: flex;
+  justify-content: center;
+}
+
+.detail {
+  border: solid 1px white;
+  background-color: white;
+  color: black;
+  margin: 40px;
+  padding: 40px;
+  text-align: center;
+}
+
+button {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  color: red;
+  background-color: lightgreen;
+  transition: all 1s ease-out;
+}
+
+.box-offer {
+  text-align: center;
+}
+
+.box-offer h2 {
+  padding-top: 30px;
+  padding-bottom: 10px;
+  font-size: 20px;
+  color: white;
+}
+
+.box-offer h4 {
+  font-size: 16px;
+  color: white;
+  span {
+    color: red;
+  }
+}
+
+.box-history {
+  padding: 18px;
+  text-align: center;
+  .status {
+    font-size: 16px;
+  }
+  button {
+    background-color: transparent;
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
+    cursor: default;
+  }
+  .tab-view {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    .tab-view-items {
+      padding: 2%;
+      width: 20%;
+      color: red;
+    }
+  }
+}
+
+@keyframes blinkingText {
+  0% {
+    color: red;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: red;
+  }
+}

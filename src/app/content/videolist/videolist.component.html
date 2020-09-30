@@ -1,0 +1,27 @@
+<div class="main">
+    <div class="video" (click)='goWatch()'>
+        <img src="{{ videos.photo_thumbnail }}" alt="no">
+    </div>
+    <div class="detil">
+        <div class="info">
+            <h2> {{ fmtTitle }}</h2>
+            <div *ngIf='ss.isLogged' class="dropdown">
+                <div (click)='showHideSetting()' class="icon" [inlineSVG]="'./assets/icons/setVid.svg'"></div>
+                <div *ngIf='dpS' class="dropdown-content">
+                    <div (click)='addQueue()' class="content">Add to queue</div>
+                    <div (click)='savePlaylist()' class="content">Add to playlist</div>
+                </div>
+            </div>
+        </div>
+        <div class="detail-video">
+            <h6>{{ fmtDuration }}</h6>
+            <h6>&bull;</h6>
+            <h6 class="channel" (click)='goChannel()'>{{ videos.creator.name }}</h6>
+            <h6>&bull;</h6>
+            <h6>{{ fmtView }}</h6>
+            <h6>&bull;</h6>
+            <h6>{{ fmtDateUpload }}</h6>
+        </div>
+        <p>{{ fmtDescription }}</p>
+    </div>
+</div>

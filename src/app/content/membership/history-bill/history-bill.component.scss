@@ -1,0 +1,10 @@
+.tab-view{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    .tab-view-items{
+        padding: 2%;
+        width: 20%;
+    }
+}

@@ -1,0 +1,94 @@
+.main {
+  display: flex;
+  padding: 15px;
+}
+
+.main:hover {
+  background-color: rgba(105, 105, 105, 0.6);
+  transition: all 0.5s ease-in;
+}
+.right {
+  display: flex;
+  img {
+    width: 180px;
+    height: 100px;
+    cursor: pointer;
+  }
+}
+
+.left {
+  width: 100%;
+  padding-left: 10px;
+}
+
+.detail {
+  display: flex;
+}
+
+.space {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.icon:hover {
+  color: red;
+  transition: all 1s ease-in;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  .dropdown-content {
+    right: 0;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(40, 40, 40);
+    margin-top: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+    width: 250px;
+    .content {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      padding: 8px;
+      color: white;
+      cursor: pointer;
+    }
+    .content:hover {
+      color: red;
+      background-color: rgba(105, 105, 105, 0.6);
+      transition: color 1s ease-out;
+      transition: background-color 1s ease-out;
+    }
+  }
+}
+
+.channel:hover {
+  color: red;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+}
+
+p {
+  text-align: justify;
+  font-size: 12px;
+}

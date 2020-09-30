@@ -1,0 +1,50 @@
+<div class="header">
+    YouRJube Premium
+    <div class="box-offer">
+        <h2> Premium membership offer:</h2>
+        <h4>&bull; View <span>Premium</span> Videos &bull;</h4>
+        <h4>&bull; View <span>Not Yet Published</span> or <span>Scheduled</span> Videos &bull;</h4>
+        <h4>&bull; <span>Download</span> Videos &bull;</h4>
+    </div>
+</div>
+<div class="footer">
+    <div class="detail">
+        <span>Monthly</span>
+        <br><br>
+        <span>$8.99</span>
+        <br><br>
+        <button (click)='validateUser(1)'>Choose Monthly Plan</button>
+    </div>
+    <div class="detail">
+        <span>Annually</span>
+        <br><br>
+        <span>$96.99</span>
+        <br><br>
+        <button (click)='validateUser(2)'>Choose Annually Plan</button>
+    </div>
+</div>
+<div *ngIf='ss.isLogged' class="box-history">
+    <div class="status">You are {{status}} Account</div>
+    <div *ngIf='db.membership'>
+        <button>Your History Bill</button> 
+        <hr>
+        <div class="tab-view">
+            <div class="tab-view-items">
+                Type
+            </div>
+            <div class="tab-view-items">
+                Start Date
+            </div>
+            <div class="tab-view-items">
+                Expired Date
+            </div>
+            <div class="tab-view-items">
+                Status
+            </div>
+        </div>
+        <hr>
+        <div *ngFor="let membership of memberships">
+            <app-history-bill [membership]="membership"></app-history-bill>
+        </div>
+    </div>
+</div>

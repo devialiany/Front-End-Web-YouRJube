@@ -1,0 +1,42 @@
+.main {
+  padding: 18px;
+}
+
+img {
+  width: 300px;
+  height: 180px;
+}
+
+.box-btn {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.btn-items {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+}
+
+.icon-active {
+  width: 25px;
+  height: 25px;
+  color: red;
+}
+
+.separator {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h2 {
+  font-size: 16px;
+}

@@ -1,0 +1,65 @@
+.main {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main:hover {
+  background-color: rgb(40, 40, 40);
+  transition: background-color 1s ease-in;
+}
+
+.detail {
+  flex: 1;
+  padding-left: 10%;
+  padding-right: 10%;
+  h1 {
+    font-size: larger;
+    cursor: pointer;
+  }
+  h1:hover {
+    color: red;
+    transition: all 1s ease;
+  }
+  span {
+    color: red;
+  }
+  p {
+    text-align: justify;
+  }
+  div:hover {
+    color: red;
+    transition: all 1s ease-in;
+    cursor: pointer;
+  }
+  button {
+    margin-right: 20px;
+    padding: 10px;
+    border: none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.192);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: red;
+    transition: all 1s ease-in;
+  }
+}
+
+.gambar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}

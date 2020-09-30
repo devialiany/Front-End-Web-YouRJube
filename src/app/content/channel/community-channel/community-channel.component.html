@@ -1,0 +1,30 @@
+<div class="header">Community This Channel</div>
+<div *ngIf='ss.isLogged && db.idChannelR == ss.creator_id'>
+    <div class="insert-post">
+        <div class="icon">
+            <img src="{{icon_creator}}" alt="">
+        </div>
+        <div class="detail">
+            <div>
+                <input type="text" placeholder="Input your title" [(ngModel)]='title'>
+            </div>
+            <div class="detail-image">
+                <div>
+                    <textarea placeholder="Input your description" cols="30" rows="7"
+                        [(ngModel)]='description'></textarea>
+                </div>
+                <div class="upload">
+                    <div class="x">
+                        <input type="file" id="post" class="inputfile" (change)="startUploadImage($event.target.files)">
+                        <label for="post">Add Image</label>
+                        <img src="{{post_image}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button (click)='post()'>Posting</button>
+</div>
+<div *ngFor="let community of communities">
+    <app-community [community]='community'></app-community>
+</div>

@@ -1,0 +1,23 @@
+.video-content {
+  width: 235px;
+  height: 235px;
+  justify-content: center;
+  margin: 8px;
+  transition: transform 1s;
+  img {
+    // width: inherit;
+    width: 200px;
+    height: 130px;
+    cursor: pointer;
+  }
+  span {
+    font-size: 12px;
+  }
+  h4 {
+    font-size: 14px;
+  }
+}
+
+.video-content:hover {
+  transform: scale(1.1);
+}

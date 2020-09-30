@@ -1,0 +1,32 @@
+<div class="main">
+    <div class="back-pic">
+        <img src="{{creator_banner}}" alt="d">
+    </div>
+    <div class="channel-info">
+        <div class="pic-icon">
+            <img src="{{creator_icon}}" alt="d">
+        </div>
+        <div class="channel-header">
+            <div class="channel-name" (click)='goChannel()'>{{creator_name}}</div>
+            <div>{{subs_count}} subscribers</div>
+        </div>
+        <div *ngIf='user'>
+            <button class="btnS" *ngIf='btnSubs' (click)='subscribeChannel()'>Subcribe</button>
+            <button class="btnU" *ngIf='!btnSubs' (click)='unsubscribeChannel()'>Unsubcribe</button>
+        </div>
+        <div *ngIf='!user'>
+            <input type="file" id="icon" class="inputfile" (change)="startUploadIcon($event.target.files)" />
+            <label for="icon">Change Icon</label>
+            <input type="file" id="banner" class="inputfile" (change)="startUploadBanner($event.target.files)" />
+            <label for="banner">Change Banner</label>
+        </div>
+    </div>
+    <div class="tab-view">
+        <div class="tab-view-items" routerLinkActive="active" routerLink="homechannel">Home</div>
+        <div class="tab-view-items" routerLinkActive="active" routerLink="videochannel">Video</div>
+        <div class="tab-view-items" routerLinkActive="active" routerLink="playlistchannel">Public Playlist</div>
+        <div class="tab-view-items" routerLinkActive="active" routerLink="communitychannel">Community</div>
+        <div class="tab-view-items" routerLinkActive="active" routerLink="aboutchannel">About</div>
+    </div>
+    <router-outlet></router-outlet>
+</div>

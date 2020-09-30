@@ -1,0 +1,121 @@
+.header {
+  padding: 18px;
+  font-size: 24px;
+  color: red;
+  font-weight: bold;
+  animation: blinkingText 1.2s infinite;
+}
+
+.main {
+  padding: 18px;
+  width: inherit;
+}
+h1 {
+  color: lightgreen;
+}
+
+img {
+  width: 60%;
+  height: 350px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.box-flex {
+  display: flex;
+  width: 60%;
+  justify-content: space-between;
+}
+
+.icon:hover {
+  color: lightgreen;
+  transition: all 0.5s ease-in;
+}
+
+input[type="text"] {
+  border-top-color: black;
+  border-left-color: black;
+  border-right-color: black;
+  background-color: black;
+  width: 100%;
+  font-size: 16px;
+  color: white;
+}
+
+input[type="text"]:focus {
+  color: white;
+  width: 100%;
+  border-bottom-color: red;
+  transition: all 1s ease-in;
+}
+
+textarea {
+  border-color: grey;
+  background-color: black;
+  width: 100%;
+  font-size: 16px;
+  color: white;
+}
+textarea:focus {
+  color: white;
+  width: 100%;
+  border: solid 1px red;
+  transition: all 1s ease-in;
+}
+
+button {
+  background-color: red;
+  color: white;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  margin-right: 20px;
+  font-weight: bold;
+}
+
+button:hover {
+  color: black;
+  background-color: lightgreen;
+  transition: all 0.5s ease-in;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  font-weight: bold;
+  color: white;
+  background-color: red;
+  display: inline-block;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: 20px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  color: black;
+  background-color: lightgreen;
+  transition: all 0.5s ease-in;
+}
+
+@keyframes blinkingText {
+  0% {
+    color: red;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: red;
+  }
+}

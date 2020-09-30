@@ -1,0 +1,96 @@
+.main {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+.main:hover {
+  background-color: rgb(40, 40, 40);
+  transition: background-color 1s ease-in;
+}
+
+.video img {
+  width: 250px;
+  height: 150px;
+  cursor: pointer;
+}
+
+.video {
+  width: 265px;
+}
+
+.detil {
+  flex: 1;
+}
+.detil h2 {
+  font-size: 17px;
+  flex: 1;
+}
+.detail-video {
+  display: flex;
+  padding-bottom: 10px;
+}
+
+h6 {
+  font-weight: normal;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+p {
+  text-align: justify;
+}
+
+.channel:hover {
+  color: red;
+  transition: color 2s ease-out;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  .dropdown-content {
+    right: 0;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    background-color: black;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 10px;
+    width: 150px;
+    .content {
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      padding: 8px;
+      color: white;
+      cursor: pointer;
+    }
+    .content:hover {
+      color: red;
+      background-color: rgba(105, 105, 105, 0.6);
+      transition: color 1s ease-out;
+      transition: background-color 1s ease-out;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.icon:hover {
+  color: red;
+  transition: all 1s ease-in;
+  cursor: pointer;
+}

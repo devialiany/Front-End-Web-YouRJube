@@ -1,0 +1,8 @@
+<div class="header">
+    Playlists Collection
+</div>
+<div class="content" *ngIf='playlists.length>0'>
+    <div *ngFor="let playlist of playlists">
+        <app-play-list [playlist]='playlist'></app-play-list>
+    </div>
+</div>

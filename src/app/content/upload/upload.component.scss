@@ -1,0 +1,93 @@
+.header {
+  padding: 18px;
+  font-size: 24px;
+  color: red;
+  font-weight: bold;
+  animation: blinkingText 1.2s infinite;
+}
+
+.main {
+  display: flex;
+  padding: 18px;
+  justify-content: center;
+}
+
+.box-upload {
+  width: 350px;
+  height: 280px;
+  border: solid 1px white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  text-align: center;
+  padding: 3%;
+  &.hovering {
+    border: solid 1px red;
+    background-color: rgb(40, 40, 40) !important;
+  }
+}
+
+.content-detail {
+  flex: 1;
+  padding-left: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+progress {
+  width: 100%;
+}
+
+progress::-webkit-progress-value {
+  transition: width 2s;
+}
+
+button {
+  border: none;
+  background-color: red;
+  color: white;
+  padding: 10px;
+  width: 100%;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  font-weight: bold;
+  color: white;
+  background-color: red;
+  display: inline-block;
+  cursor: pointer;
+  padding: 8px;
+  margin-top: 15px;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+  color: black;
+  background-color: lightgreen;
+  transition: all 0.5s ease-in;
+}
+
+@keyframes blinkingText {
+  0% {
+    color: red;
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    color: red;
+  }
+}

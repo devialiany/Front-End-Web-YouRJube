@@ -1,0 +1,6 @@
+<div class="header">Trending Videos</div>
+<div class="content">
+    <div *ngFor="let video of videos, let i = index">
+        <app-videolist [vidl]="video"></app-videolist>
+    </div>
+</div>

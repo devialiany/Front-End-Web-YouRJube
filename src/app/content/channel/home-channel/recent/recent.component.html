@@ -1,0 +1,13 @@
+<div class="header">
+    <div>
+        Recently Uploaded
+    </div>
+    <div>
+        <Button (click)='goTo()'>See All Video</Button> 
+    </div>
+</div>
+<div class="content">
+    <div *ngFor="let video of videos, let i = index">
+        <app-video class="item" [vid]="video"></app-video>
+    </div>
+</div>

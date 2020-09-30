@@ -1,0 +1,90 @@
+<div class="header">
+  <div class="h-side">
+    <div (click)="showHideSideBar()" class="menu" [inlineSVG]="'./assets/icons/menu.svg'"></div>
+    <img class="logo" [routerLink]="['/home']" src="./assets/logo.png" alt="logo" />
+  </div>
+  <div class="search-bar">
+    <div class="autocomplete">
+      <input (keyup)='auto()' type="text" placeholder="Search" [(ngModel)]="db.keyword" (click)='deletekeys()' />
+      <div *ngIf="db.autoComplete && dataSearch.length > 0" class="autocomplete-items">
+        <div *ngFor='let i of dataSearch'>
+          <app-keyword [key]='i'></app-keyword>
+        </div>
+      </div>
+    </div>
+    <button class="icon" [inlineSVG]="'./assets/icons/search.svg'" (click)="searching()"></button>
+  </div>
+  <div class="b-side">
+    <div *ngIf="loggedIn" class="iconic" routerLinkActive="active" [inlineSVG]="'./assets/icons/upload-video.svg'"
+      [routerLink]="['/upload']"></div>
+    <div *ngIf="loggedIn" class="dropdown">
+      <!-- loggedIn -->
+      <div (click)="showDropdownNotification()" class="iconic" [inlineSVG]="'./assets/icons/bell.svg'"></div>
+      <div *ngIf="dpN" class=" dropdown-content">
+        <!-- dpN -->
+        <div class="sub-title">New Video</div>
+        <hr>
+        <div class="content" *ngIf='notifV.length == 0'>No Notification</div>
+        <div *ngFor="let nv of notifV">
+          <app-notif-video [nv]='nv'></app-notif-video>
+        </div>
+        <div class="sub-title">New Post</div>
+        <hr>
+        <div class="content" *ngIf='notifP.length == 0'>No Notification</div>
+        <div *ngFor="let np of notifP">
+          <app-notif-post [np]='np'></app-notif-post>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!loggedIn" class="dropdown">
+      <div (click)="showDropdownSetting()" class="iconic" [inlineSVG]="'./assets/icons/settings.svg'"></div>
+      <div *ngIf="dpS" class="dropdown-content">
+        <div (click)="doChangeRMode()" class="content">
+          Restrict Mode : {{ rMode }}
+        </div>
+        <div (click)="showModalLocation()" class="content">
+          Location : {{db.currentLoc}}
+        </div>
+        <div (click)="showModalKeyboard()" class="content">
+          Keyboard Shortcut Button
+        </div>
+      </div>
+    </div>
+    <button *ngIf="!loggedIn" (click)="showModalLogin()">
+      <div class="icon" [inlineSVG]="'./assets/icons/login.svg'"></div>
+      LOGIN
+    </button>
+    <div *ngIf="loggedIn" class="dropdown">
+      <img (click)="showDropdownUser()" class="profile" src="{{ ss.creator_icon }}" alt="no" />
+      <div *ngIf="dpU" class="dropdown-content">
+        <div class="content-img">
+          <img src="{{ ss.creator_icon }}" alt="no" />
+        </div>
+        <div class="content-name">
+          {{ ss.creator_name }}
+        </div>
+        <div class="content" (click)="showModalConfirm()">
+          Switch Account
+        </div>
+        <div class="content" (click)="goMembershipPage()">
+          Membership
+        </div>
+        <div class="content" (click)="goToMyChannel()">
+          Your Channel
+        </div>
+        <div (click)="doChangeRMode()" class="content">
+          Restrict Mode : {{ rMode }}
+        </div>
+        <div (click)="showModalLocation()" class="content">
+          Location : {{db.currentLoc}}
+        </div>
+        <div (click)="showModalKeyboard()" class="content">
+          Keyboard Shortcut Button
+        </div>
+        <div class="content" (click)="signOut()">
+          Sign Out
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

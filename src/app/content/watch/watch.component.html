@@ -1,0 +1,117 @@
+<div class="main">
+    <div class="right">
+        <Video id="videotag" src="{{video_file}}" (click)="shortkey()" controls></Video>
+        <div class="description">
+            <div style="display: flex; justify-content: space-between;">
+                <div>
+                    <h2>{{title}}</h2>
+                    <div class="detail">
+                        <span>{{viewer}} views</span>
+                        <br>
+                        <span class="space">&bull;</span>
+                        <br>
+                        <span>{{date_upload}}</span>
+                    </div>
+                </div>
+                <button (click)='goNextVideo()'>Next Video</button>
+            </div>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <div *ngIf='like' (click)='goLike()' class="icon" [inlineSVG]="'./assets/icons/like.svg'"></div>
+                    <div *ngIf='likeAct' (click)='goUnlike()' class="icon-active"
+                        [inlineSVG]="'./assets/icons/like.svg'"></div>
+                    <div> &nbsp; {{countLike.length}}</div>
+                </div>
+                <div class="grid-item">
+                    <div *ngIf='unlike' (click)='goDislike()' class="icon" [inlineSVG]="'./assets/icons/dislike.svg'">
+                    </div>
+                    <div *ngIf='unlikeAct' (click)='goUnDislike()' class="icon-active"
+                        [inlineSVG]="'./assets/icons/dislike.svg'"></div>
+                    <div>
+                        &nbsp; {{countDislike.length}}
+                    </div>
+                </div>
+                <div class="grid-item" (click)='showShareModal()'>
+                    <div class="icon" [inlineSVG]="'./assets/icons/share.svg'"></div> Share
+                </div>
+                <div class="grid-item" *ngIf='ss.creator_membership == 2'>
+                    <div class="icon" [inlineSVG]="'./assets/icons/download-video.svg'"></div> Download
+                </div>
+                <div class="grid-item" (click)='savePlaylist()'>
+                    <div class="icon" [inlineSVG]="'./assets/icons/add-playlist.svg'"></div> Save to Playlist
+                </div>
+            </div>
+            <div class="channel-section">
+                <div class="detail-channel">
+                    <div>
+                        <img src="{{channel_icon}}" alt="">
+                    </div>
+                    <div class="left-detail">
+                        <div class="channel-link" (click)="goChannel()">{{channel_name}}</div>
+                        <div>{{subscribers_count}} subscribers</div>
+                    </div>
+                </div>
+                <div *ngIf='user'>
+                    <button class="btnS" *ngIf='btnSubs' (click)='subscribeChannel()'>Subscribe</button>
+                    <button class="btnU" *ngIf='!btnSubs' (click)='unsubscribeChannel()'>Unsubscribe</button>
+                </div>
+
+            </div>
+            <div class="desc">
+                <hr>
+                <p>{{description}}</p>
+                <hr>
+            </div>
+            <button class='btn-com' (click)='toggleComment()'>{{comments.length}} comments</button>
+            <div *ngIf='ss.isLogged' class="insert-comment">
+                <div>
+                    <img src="{{ss.creator_icon}}" alt="">
+                </div>
+                <div class="input-comment">
+                    <input (click)='deletekeys()' type="text" placeholder="Add Your Comment" [(ngModel)]='newComment'>
+                </div>
+                <button (click)='addComment()'>Send</button>
+            </div>
+            <div *ngIf="comSec" class="comment-section">
+                <div>
+                    <button class="{{ba ? 'active':''}} btn-sort" (click)='sortAll()'>All</button>
+                    <button class="{{bt ? 'active':''}} btn-sort" (click)='sortTopLike()'>Top Liked</button>
+                    <button class="{{bn ? 'active':''}} btn-sort" (click)='sortNewest()'>Newest</button>
+                </div>
+                <!-- list-comment -->
+                <!-- <div class="comment-scroll"> -->
+                <div class="content">
+                    <div *ngFor="let comment of comments, let i = index">
+                        <app-comment *ngIf="i<(lastKey)" [com]="comment"></app-comment>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="left">
+        <div *ngIf='queue && ss.queue.length>0' style="border: solid 2px red;">
+            <div class="tab-playlist-title">
+                <h1>My Queue List</h1>
+            </div>
+            <div *ngFor='let queue of ss.queue'>
+                <app-queue [vid]='queue'></app-queue>
+            </div>
+        </div>
+        <div *ngIf='db.plyActive.length > 0' style="border: solid 2px red;">
+            <div class="tab-playlist-title">
+                <h1 style="cursor: pointer;" (click)='goPlaylist()'>{{playlistName}}</h1>
+                <span style="cursor: pointer;" (click)='goChannelPlaylist()'>{{playlistCreatorName}}</span>
+            </div>
+            <div *ngFor="let vid of db.plyActive">
+                <app-tab-playlist [vid]="vid"></app-tab-playlist>
+            </div>
+        </div>
+        <div class="contentR">
+            <div *ngFor="let video of videos, let i = index">
+                <app-related-video *ngIf='i<(lastKeyR)' [vid]="video"></app-related-video>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer"></div>

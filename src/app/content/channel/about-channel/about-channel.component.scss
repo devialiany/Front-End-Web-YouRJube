@@ -1,0 +1,13 @@
+p {
+  text-align: justify;
+  // padding: 10px;
+}
+
+div {
+  padding: 20px;
+  span:hover {
+    cursor: pointer;
+    color: red;
+    transition: all 1s ease-in;
+  }
+}

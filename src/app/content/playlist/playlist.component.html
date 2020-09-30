@@ -1,0 +1,12 @@
+<div class="main">
+    <div class="gambar" (click)='goPlaylist()'>
+        <img src="{{photo_thumbnail}}" alt="">
+    </div>
+    <div class="detail">
+        <h1 (click)='goPlaylist()'> {{playlist.title}}</h1>
+        <div (click)='goChannel()'>{{playlist.creator.name}}</div>
+        <p>{{fmtDescription}}</p>
+        <button (click)='goPlaylist()'>View Playlist</button>
+        <button (click)='playAll()'>Play All</button>
+    </div>
+</div>

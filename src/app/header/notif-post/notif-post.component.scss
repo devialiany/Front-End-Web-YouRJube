@@ -1,0 +1,21 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  .channel {
+    color: lightgreen;
+  }
+  .channel:hover {
+    color: red;
+    transition: all 1s ease-in;
+  }
+}
+
+.main:hover {
+  background-color: rgba(105, 105, 105, 0.6);
+  transition: color 1s ease-out;
+  transition: background-color 1s ease-out;
+}

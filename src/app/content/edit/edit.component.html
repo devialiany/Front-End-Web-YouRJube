@@ -1,0 +1,36 @@
+<div class="header">
+    Edit Your Video
+</div>
+<div class="main">
+    <img src="{{photo_thumbnail}}" alt="">
+</div>
+<div>
+    <input type="file" id="thumbnail" class="inputfile" (change)="startUploadThumbnail($event.target.files)">
+    <label for="thumbnail">Change Thumbnail</label>
+</div>
+<div class="main">
+    <div>
+        <h1>Title</h1>
+    </div>
+    <div class="box-flex">
+        <input type="text" [(ngModel)]='title'>
+    </div>
+</div>
+<div class="main">
+    <div>
+        <h1>Description</h1>
+    </div>
+    <div class="box-flex">
+        <textarea cols="30" rows="7" [(ngModel)]='description'></textarea>
+    </div>
+</div>
+<div class="main">
+    <select [(ngModel)]='privacy'>
+        <option value="1">Private</option>
+        <option value="2">Public</option>
+    </select>
+</div>
+<div class="main">
+    <button (click)='deleteVideo()'>Delete Video</button>
+    <button (click)='uploadVideo()'>Update Video</button>
+</div>

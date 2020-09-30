@@ -1,0 +1,54 @@
+.side-bar-list{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.icon{
+    width: 30px;
+    height: 30px;
+    margin-right: 25px;
+}
+
+.side-bar-list:hover{
+    color: red;
+    background-color: rgba(105, 105, 105, 0.6);
+    transition: all 2s ease-out;
+    
+}
+
+.side-bar-title-list{
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.side-bar-link-list{
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    color: red;
+    transition: color 1s ease-out;
+}
+
+.s-footer{
+    display: flex;
+    align-items: center;
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    color: red;
+}
+
+.active{
+    font-weight: bold;
+    color: red;
+}

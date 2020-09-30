@@ -1,0 +1,15 @@
+<div class="main">
+    <div class="gambar" (click)='goChannel()'>
+        <img src="{{creator.photo_profile}}" alt="">
+    </div>
+    <div class="detail">
+        <h1 (click)='goChannel()'>{{creator.name}}</h1>
+        <div> <span>{{subscribers_count}}</span> subscribers</div>
+        <div> <span>{{creator.videos.length}}</span> videos</div>
+        <p>{{fmtDescription}}</p>
+    </div>
+    <div class="btn-subs">
+        <button class="btnS" (click)='subscribeChannel()' *ngIf='btnSubs'>Subscribe</button>
+        <button class="btnU" (click)='unsubscribeChannel()' *ngIf='!btnSubs'>Unsubscribe</button>
+    </div>
+</div>

@@ -1,0 +1,180 @@
+<div class="main">
+    <div class="head-nav">
+        <app-header class="header" (modalConfirmSwitch)='showModalConfirmSwitch()' (modalKeyboard)='showModalKeyboard()'
+            (modalLogin)="showModalLogin()" (sideBar)="doChange()"></app-header>
+    </div>
+    <div *ngIf='modalLogin' class="modal">
+        <div class="modal-content">
+            <div class="x-float">
+                <span class="close" (click)="closeModalLogin()">&times;</span>
+            </div>
+            <div class="content">
+                <h2>Sign In With Google Account</h2>
+                <h3>Click This Google Icon</h3>
+                <button class="google" (click)="signInWithGoogle()">
+                    <div class="icon" [inlineSVG]="'./assets/icons/google.svg'"></div>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='modalKeyboard' class="modal">
+        <div class="modal-content">
+            <div class="x-float">
+                <span class="close" (click)="closeModalKeyboard()">&times;</span>
+            </div>
+            <div class="content">
+                <h2>Keyboard Shortcut</h2>
+                <div class="box">
+                    <div class="grid-container">
+                        <div class="grid-item">&bull; Backward 10 seconds</div>
+                        <div class="grid-item">&nbsp; &nbsp; j</div>
+                        <div class="grid-item">&bull; Play or pause video</div>
+                        <div class="grid-item">&nbsp; &nbsp; k</div>
+                        <div class="grid-item">&bull; Forward 10 seconds</div>
+                        <div class="grid-item">&nbsp; &nbsp; l</div>
+                        <div class="grid-item">&bull; Fullscreen Mode</div>
+                        <div class="grid-item">&nbsp; &nbsp; f</div>
+                        <div class="grid-item">&bull; Up the video volume</div>
+                        <div class="grid-item">&nbsp; &nbsp; &#8593;</div>
+                        <div class="grid-item">&bull; Down the video volume</div>
+                        <div class="grid-item">&nbsp; &nbsp; &#8595;</div>
+                    </div>
+                </div>
+                <h2>Right-click on Video Options</h2>
+                <div class="box">
+                    <div class="grid-container2">
+                        <div class="grid-item">&bull; [Loop]</div>
+                        <div class="grid-item">&nbsp; &nbsp; &#9658; Looping video</div>
+                        <div class="grid-item">&bull; [Copy Link]</div>
+                        <div class="grid-item">&nbsp; &nbsp; &#9658; Copy video URL to the clipboard</div>
+                        <div class="grid-item">&bull; [Copy Link with Current Time]</div>
+                        <div class="grid-item">&nbsp; &nbsp; &#9658; Copy video URL to the clipboard with current-time
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='modalConfirmSwitch' class="modal">
+        <div class="modal-content">
+            <div class="content">
+                <h4>Are you sure to switch account?</h4>
+            </div>
+            <div class="btn-confirm">
+                <button (click)='signOut()'>Yes</button>
+                <button (click)='closeModalConfirmSwicth()'>No</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='db.modalWantLog' class="modal">
+        <div class="modal-content">
+            <div class="close" (click)="closeModalWantLog()">
+                &times;
+            </div>
+            <div class="content">
+                <h4>REQUIRED</h4>
+                <div class="btn-confirm">You must login!
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='db.modalLocation' class="modal">
+        <div class="modal-content">
+            <div class="x-float">
+                <span class="close" (click)="closeModalLocation()">&times;</span>
+            </div>
+            <div class="content">
+                <h2>Change Location</h2>
+                <div (click)='setLocation("Amerika Serikat")' class="items">Amerika Serikat</div>
+                <div (click)='setLocation("China")' class="items">China</div>
+                <div (click)='setLocation("Indonesia")' class="items">Indonesia</div>
+                <div (click)='setLocation("Korea")' class="items">Korea</div>
+                <div (click)='setLocation("Thailand")' class="items">Thailand</div>
+            </div>
+        </div>
+    </div>
+    <div class="{{db.modalSharePlaylist ? 'modal':'notActive'}}">
+        <div class="modal-content">
+            <div class="x-float">
+                <span class="close" (click)="closeModalSharePlaylist()">&times;</span>
+            </div>
+            <div class="content">
+                <h4>Share Playlist</h4>
+                <div class="tw" [inlineSVG]="'./assets/icons/twitter.svg'" (click)='goTwitter()'></div>
+                <input type="text" id="sharepl">
+                <button (click)='goCopy()'>Copy URL</button>
+            </div>
+        </div>
+    </div>
+    <div class="{{db.modalShareVideo ? 'modal':'notActive'}}">
+        <div class="modal-content">
+            <div class="x-float">
+                <span class="close" (click)="closeModalShareVideo()">&times;</span>
+            </div>
+            <div class="content">
+                <h4>Share Playlist</h4>
+                <div class="tw" [inlineSVG]="'./assets/icons/twitter.svg'" (click)='goTwitterV()'></div>
+                <input type="text" id="sharev">
+                <button (click)='goCopyV()'>Copy URL</button>
+                <button (click)='getTime()'>With current duration</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='db.modalAddPlaylist' class="modal">
+        <div class="modal-content">
+            <div class="x-float">
+                <span class="close" (click)="closeModalAddPlaylist()">&times;</span>
+            </div>
+            <div class="content">
+                <h2>Choose Your Playlist:</h2>
+                <select [(ngModel)]='db.idPlaylist'>
+                    <option value="0">Choose One</option>
+                    <option *ngFor='let opt of db.userPlaylist' value="{{opt.id}}">
+                        {{opt.title}}
+                    </option>
+                </select>
+                <button (click)='showNewPlaylist()'>New Playlist</button>
+                <button (click)='addtoExistingPlaylist()'>Add</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='db.modalAddNewPlaylist' class="modal">
+        <div class="modal-content">
+            <div class="x-float">
+                <span class="close" (click)="closeModalAddNewPlaylist()">&times;</span>
+            </div>
+            <div class="content">
+                <h2>Make your playlist:</h2>
+                <input type="text" placeholder="Input Your Playlist Name" [(ngModel)]='titlePlaylist'>
+                <br>
+                <select [(ngModel)]='db.type'>
+                    <option value="1">Private</option>
+                    <option value="2">Public</option>
+                </select>
+                <button (click)='addNewPlaylist()'>Make Playlist</button>
+                <button (click)='cancelAddPlaylist()'>Cancel</button>
+            </div>
+        </div>
+    </div>
+    <div *ngIf='db.modalAddPlaylistUpload' class="modal">
+        <div class="modal-content">
+            <div class="x-float">
+                <span class="close" (click)="closePlaylistUpload()">&times;</span>
+            </div>
+            <div class="content">
+                <h2>Make your playlist:</h2>
+                <input type="text" placeholder="Input Your Playlist Name" [(ngModel)]='titlePlaylist'>
+                <br>
+                <select [(ngModel)]='db.type'>
+                    <option value="1">Private</option>
+                    <option value="2">Public</option>
+                </select>
+                <button (click)='addNewPlaylistUpload()'>Make Playlist</button>
+            </div>
+        </div>
+    </div>
+    <div class="middle">
+        <app-sidebar (modalSignIn)='showModalLogin()' class="{{ sideBar ? '': 'side-bar-none'}} side-bar"></app-sidebar>
+        <app-content></app-content>
+    </div>
+</div>

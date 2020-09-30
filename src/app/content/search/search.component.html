@@ -1,0 +1,41 @@
+<div class="header">Search Videos '{{ keyword }}' Found {{videos.length}} videos, {{creators.length}} channels</div>
+
+<div class="filter">
+    Filter By:
+</div>
+<div class="filter">
+    <button class="{{ all ? 'active':''}}" (click)='filterAll()'>All</button>
+</div>
+<div class="filter">
+    Type
+</div>
+<div class="filter">
+    <button class="{{ tc ? 'active':''}}" (click)='filterChannel()'>Channel</button>
+    <button class="{{ tv ? 'active':''}}" (click)='filterVideo()'>Video</button>
+    <button class="{{ tp ? 'active':''}}" (click)='filterPlaylist()'>Playlist</button>
+</div>
+<div class="filter">
+    Upload Date
+</div>
+<div class="filter">
+    <button class="{{ tw ? 'active':''}}" (click)='filterWeek()'>This Week</button>
+    <button class="{{ tm ? 'active':''}}" (click)='filterMonth()'>This Month</button>
+    <button class="{{ ty ? 'active':''}}" (click)='filterYear()'>This Year</button>
+</div>
+<div class="content">
+    <div *ngIf='channelSec'>
+        <div *ngFor="let creator of creators, let i = index">
+            <app-channel-list [cre]='creator'></app-channel-list>
+        </div>
+    </div>
+    <div *ngIf='videoSec'>
+        <div *ngFor="let video of videos, let i = index">
+            <app-videolist [vidl]="video"></app-videolist>
+        </div>
+    </div>
+    <div *ngIf='playlistSec'>
+        <div *ngFor="let playlist of playlists">
+            <app-playlist [playlist]='playlist'></app-playlist>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="main">
+    <div>
+        <img src='{{ comments.creator.photo_profile }}' alt="">
+    </div>
+    <div>
+        <div class="main-info">
+            <div>
+                {{ comments.creator.name }}
+            </div>
+            <div>
+                &nbsp; &bull; &nbsp;{{comments.date_upload}}
+            </div>
+        </div>
+        <div>
+            <p>{{ comments.content }}</p>
+            <div class="box-btn">
+                <div class="btn-items">
+                    <div *ngIf='like' (click)='goLike()' class="icon" [inlineSVG]="'./assets/icons/like.svg'"></div>
+                    <div *ngIf='likeAct' (click)='goUnlike()' class="icon-active"
+                        [inlineSVG]="'./assets/icons/like.svg'"></div>
+                    <div>
+                        &nbsp; {{countLike.length}}
+                    </div>
+                </div>
+                <div class="btn-items">
+                    <div *ngIf='unlike' (click)='goDislike()' class="icon" [inlineSVG]="'./assets/icons/dislike.svg'">
+                    </div>
+                    <div *ngIf='unlikeAct' (click)='goUnDislike()' class="icon-active"
+                        [inlineSVG]="'./assets/icons/dislike.svg'"></div>
+                    <div>
+                        &nbsp; {{countDislike.length}}
+                    </div>
+                </div>
+                <div *ngIf='ss.isLogged' class="btn-items" (click)='showHideReplyInput()'>
+                    Reply
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<button *ngIf="replyToggle" class="reply-length" (click)='showHideListReply()'>{{replies.length}} Replies</button>
+<div class="insert-reply" *ngIf='replyInput'>
+    <div>
+        <img src="{{ss.creator_icon}}" alt="">
+    </div>
+    <div class="input-reply">
+        <input (click)='deletekeys()' type="text" placeholder="Add Your Comment" [(ngModel)]='newReply'>
+    </div>
+    <button (click)='addReply()'>Send</button>
+</div>
+<div *ngIf='replySec' class="reply-section">
+    <div *ngFor="let reply of replies, let i = index">
+        <app-reply [rep]='reply'></app-reply>
+    </div>
+
+</div>

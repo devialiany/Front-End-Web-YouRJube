@@ -1,0 +1,29 @@
+<div class="main">
+    <h2 class="separator">{{community.title}}</h2>
+    <div class="separator">
+        {{community.description}}
+    </div>
+    <div class="separator">
+        <img src="{{community.post_image}}" alt="">
+    </div>
+    <div class="box-btn">
+        <div class="btn-items">
+            <div *ngIf='like' (click)='goLike()' class="icon" [inlineSVG]="'./assets/icons/like.svg'"></div>
+            <div *ngIf='likeAct' (click)='goUnlike()' class="icon-active" [inlineSVG]="'./assets/icons/like.svg'"></div>
+            <div>
+                &nbsp; {{countLike.length}}
+            </div>
+        </div>
+        <div class="btn-items">
+            <div *ngIf='unlike' (click)='goDislike()' class="icon" [inlineSVG]="'./assets/icons/dislike.svg'"></div>
+            <div *ngIf='unlikeAct' (click)='goUnDislike()' class="icon-active"
+                [inlineSVG]="'./assets/icons/dislike.svg'"></div>
+            <div>
+                &nbsp; {{countDislike.length}}
+            </div>
+        </div>
+        <div class="btn-items">
+            Post on {{fmtDate}}
+        </div>
+    </div>
+</div>

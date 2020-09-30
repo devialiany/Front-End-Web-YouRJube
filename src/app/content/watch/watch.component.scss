@@ -1,0 +1,212 @@
+.main {
+  display: flex;
+  padding: 15px;
+}
+
+.right {
+  width: 680px;
+  // flex: 1;
+}
+
+.right video {
+  width: 680px;
+  height: 400px;
+  padding-right: 20px;
+}
+
+.detail {
+  display: flex;
+}
+
+.space {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.description {
+  padding-top: 15px;
+  padding-right: 15px;
+}
+
+.grid-container {
+  padding-top: 15px;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-item:hover {
+  cursor: pointer;
+  color: lightgreen;
+  transition: all 1s ease-in-out;
+}
+
+.icon {
+  width: 35px;
+  height: 35px;
+}
+
+.icon-active {
+  width: 35px;
+  height: 35px;
+  color: red;
+}
+
+.channel-section {
+  padding-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  button {
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .btnS {
+    color: white;
+    background-color: red;
+  }
+  .btnU {
+    color: red;
+    background-color: white;
+  }
+  button:hover {
+    background-color: lightgreen;
+    color: black;
+    transition: all 0.5s ease-in;
+  }
+}
+
+.channel-section img {
+  width: 35px;
+  height: 35px;
+}
+
+.detail-channel {
+  display: flex;
+}
+
+.left-detail {
+  padding-left: 15px;
+}
+
+.desc {
+  padding-top: 15px;
+}
+.desc p {
+  text-align: justify;
+}
+
+button {
+  background-color: red;
+  color: white;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.comment-section {
+  width: 100%;
+}
+
+.insert-comment {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+}
+
+.insert-comment img {
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 50%;
+}
+
+.main-info {
+  display: flex;
+}
+
+input[type="text"] {
+  border-top-color: black;
+  border-left-color: black;
+  border-right-color: black;
+  background-color: black;
+  width: 100%;
+  color: white;
+}
+
+.input-comment {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+input[type="text"]:focus {
+  color: white;
+  width: 100%;
+  border-bottom-color: red;
+  transition: all 1s ease-in;
+}
+.channel-link {
+  cursor: pointer;
+}
+
+.channel-link:hover {
+  color: red;
+  transition: all 1s ease-out;
+}
+
+.btn-com {
+  border: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  color: red;
+  cursor: pointer;
+}
+
+.btn-com:active {
+  background-color: rgba(105, 105, 105, 0.6);
+}
+
+.btn-sort {
+  margin: 10px;
+  border-radius: 20px;
+  color: red;
+  background-color: white;
+  width: 15%;
+  cursor: pointer;
+  &.active {
+    background-color: red;
+    color: white;
+  }
+}
+
+.btn-sort:hover {
+  background-color: lightgreen;
+  color: black;
+  transition: all 0.5s ease-in;
+}
+
+.tab-playlist-title {
+  padding: 15px;
+  h1 {
+    font-size: 15px;
+  }
+  span {
+    font-size: 12px;
+  }
+}
+
+.comment-scroll {
+  overflow: auto;
+  height: 500px;
+}

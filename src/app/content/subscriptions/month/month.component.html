@@ -1,0 +1,7 @@
+<div class="header">This Month</div>
+<div class="content">
+    <div *ngFor="let video of videos, let i = index">
+        <app-video *ngIf='i<(lastKey)' [vid]="video"></app-video>
+    </div>
+</div>
+<div class="footer"></div>

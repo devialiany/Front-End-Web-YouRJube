@@ -1,0 +1,116 @@
+<div class="header">
+    Upload Your Video Here
+</div>
+<div class="main">
+    <div class="content-video">
+        <div class="box-upload" appUpload (hovered)="toggleHoverThumbnail($event)"
+            (dropped)="startUploadThumbnail($event)" [class.hovering]="isHoveringThumbnail">
+            <div>
+                Drag Here to Upload Thumbnail
+            </div>
+            <div>
+                <input type="file" name="file" id="file" class="inputfile"
+                    (change)="startUploadThumbnail($event.target.files)" />
+                <label for="file">Or Choose Your Thumbnail File</label>
+            </div>
+            <div *ngIf="percentageThumbnail | async as pct">
+                <progress [value]="pct" max="100"></progress>
+            </div>
+            <div>
+                <img src="{{downloadUrlThumbnail}}" alt="" style="width: 240px; height: 150px; padding: 10px;">
+            </div>
+        </div>
+        <div style="padding: 28px;"></div>
+        <div class="box-upload" appUpload (hovered)="toggleHoverVideo($event)" (dropped)="startUploadVideo($event)"
+            [class.hovering]="isHoveringVideo">
+            <div>
+                Drag Here to Upload Video
+            </div>
+            <div>
+                <input type="file" name="file" id="file" class="inputfile"
+                    (change)="startUploadVideo($event.target.files)">
+                <label for="file">Or Choose Your Video File</label>
+            </div>
+            <div *ngIf="percentageVideo | async as pct">
+                <progress [value]="pct" max="100"></progress>
+            </div>
+            <div>
+                <video id="uploadvideo" controls src="{{downloadUrlVideo}}" alt=""
+                    style="width: 240px; height: 150px; padding: 10px;"></video>
+            </div>
+        </div>
+
+        <!-- <div *ngIf="(snapshot|async) as snap">
+            {{ snap.bytesTransffered | fileSize }} of {{ snap.totalBytes | fileSize }}
+        </div> -->
+
+    </div>
+    <div class="content-detail">
+        <div>
+            <fieldset>
+                <legend>Video Detail</legend>
+                <div class="grid-container">
+                    <label for="">Title</label>
+                    <input [(ngModel)]="title">
+                    <label for="">Description</label>
+                    <textarea [(ngModel)]='description' cols="30" rows="10"></textarea>
+                    <label for="">Video Category</label>
+                    <select id="CategoryVideo" [(ngModel)]="category">
+                        <option value="0">-- Choose One --</option>
+                        <option value="1">Music</option>
+                        <option value="2">Sport</option>
+                        <option value="3">Gaming</option>
+                        <option value="4">Entertaiment</option>
+                        <option value="5">News</option>
+                        <option value="6">Travel</option>
+                        <option value="7">Kids</option>
+                    </select>
+                    <label for="">Add to Playlist</label>
+                    <select [(ngModel)]='plyU'>
+                        <option value="0">-- Choose One --</option>
+                        <option *ngFor='let opt of db.userPlaylist' value="{{opt.id}}">
+                            {{opt.title}}
+                        </option>
+                    </select>
+                    <div></div>
+                    <button (click)='addnewplaylist()'>New Playlist</button>
+                    <label for="">Viewable for under 18 years old user</label>
+                    <div>
+                        <input [(ngModel)]="age" type="radio" name="age" value="2">
+                        <label for="Yes">Yes</label><br>
+                        <input [(ngModel)]="age" type="radio" name="age" value="1">
+                        <label for="No">No</label><br>
+                    </div>
+                </div>
+            </fieldset>
+            <div style="padding: 10px;"></div>
+            <fieldset>
+                <legend>Visibility Settings</legend>
+                <div class="grid-container">
+                    <label for="">Video Privacy</label>
+                    <div>
+                        <input [(ngModel)]="privacy" type="radio" name="privacy" value="2">
+                        <label for="Public">Public</label><br>
+                        <input [(ngModel)]="privacy" type="radio" name="privacy" value="1">
+                        <label for="Private">Private</label><br>
+                    </div>
+                    <label for="">Set Premium Video</label>
+                    <div>
+                        <input [(ngModel)]="premium" type="radio" name="premium" value="2">
+                        <label for="Yes">Yes</label><br>
+                        <input [(ngModel)]="premium" type="radio" name="premium" value="1">
+                        <label for="No">No</label><br>
+                    </div>
+                </div>
+            </fieldset>
+            <div style="padding: 10px;"></div>
+            <div>Title File Name: {{fileName}}</div>
+            <div>Duration Video: {{videoDuration}}</div>
+            <div style="color: gray; font-size: 13px;">* You can use this link if you complete upload your video</div>
+            <div>Link : {{link}}</div>
+        </div>
+    </div>
+</div>
+<div class="main">
+    <button class="btn-Upload" (click)='uploadToDB()'>Upload Video</button>
+</div>

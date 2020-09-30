@@ -1,0 +1,24 @@
+<div class="main">
+    <div class="right" (click)='goWatch()'>
+        <img src="{{ videos.photo_thumbnail }}" alt="">
+    </div>
+    <div class="left">
+        <div class="x">
+            <div class="info">
+                <h6>{{fmtTitle}}</h6>
+            </div>
+            <span>{{fmtDuration}}</span> &bull; <span class="channel"
+                (click)='goChannel()'>{{videos.creator.name}}</span>
+            <div class="detail">
+                <span>{{fmtView}} </span>
+                <br>
+                <span class="space"> &bull; </span>
+                <br>
+                <span>{{fmtDateUpload}}</span>
+            </div>
+        </div>
+        <div>
+            <div (click)='removeQueue()' class="icon" [inlineSVG]="'./assets/icons/delete.svg'"></div>
+        </div>
+    </div>
+</div>

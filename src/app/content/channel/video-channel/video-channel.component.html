@@ -1,0 +1,15 @@
+<div class="header">
+    Videos Collection
+    <div class="btn-sort">
+        <button class="{{ ba ? 'active':'' }}" (click)='sortAll()'>All</button>
+        <button class="{{ bm ? 'active':'' }}" (click)='sortMostPop()'>Most Popular</button>
+        <button class="{{ bo ? 'active':'' }}" (click)='sortOldest()'>Oldest</button>
+        <button class="{{ bn ? 'active':'' }}" (click)='sortNewest()'>Newest</button>
+    </div>
+</div>
+<div class="content">
+    <div *ngFor="let video of videos, let i = index">
+        <app-video *ngIf="i<(lastKey)" class="item" [vid]="video"></app-video>
+    </div>
+</div>
+<div class="footer"></div>

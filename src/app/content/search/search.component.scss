@@ -1,0 +1,26 @@
+.header{
+    padding: 18px;
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.filter{
+    padding-left: 18px;
+    padding-bottom: 10px;
+    display: flex;
+    button{
+        margin-right: 10px;
+        padding: 5px;
+        border: none;
+        color: red;
+        background-color: white;
+        border-radius: 20px;
+        cursor: pointer;
+        width: 10%;
+        &.active{
+            background-color: red;
+            color: white;
+        }
+    }
+}

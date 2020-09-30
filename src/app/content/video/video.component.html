@@ -1,0 +1,34 @@
+<div class="video-content">
+    <div (click)='goWatch()'>
+        <img src="{{videos.photo_thumbnail}}" alt="no">
+    </div>
+    <div class="box">
+        <div>
+            <img src="{{videos.creator.photo_profile}}" alt="">
+        </div>
+        <div class="x-info">
+            <div class="info">
+                <h4>{{ fmtTitle }}</h4>
+                <div *ngIf='ss.isLogged' class="dropdown">
+                    <div (click)='showHideSetting()' class="icon" [inlineSVG]="'./assets/icons/setVid.svg'"></div>
+                    <div *ngIf='dpS' class="dropdown-content">
+                        <div (click)='addQueue()' class="content">Add to queue</div>
+                        <div (click)='savePlaylist()' class="content">Add to playlist</div>
+                        <div (click)='editVideo()' *ngIf='ss.isLogged && ss.creator_id == videos.creator.id'
+                            class="content">Edit This Video
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span><span class="channel" (click)='goChannel()'>{{ videos.creator.name }}</span> &bull;
+                    {{ fmtDuration }}</span>
+            </div>
+            <div class="detail">
+                <span>{{ fmtView }} views</span>
+                <div class="space"> &bull; </div>
+                <span>{{ fmtDateUpload }}</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,99 @@
+<div class="side-bar-list" routerLinkActive="active" [routerLink]="['/home']">
+    <div class="icon" [inlineSVG]="'./assets/icons/home.svg'"></div>
+    Home
+</div>
+<div class="side-bar-list" routerLinkActive="active" [routerLink]="['/trending']">
+    <div class="icon" [inlineSVG]="'./assets/icons/trending.svg'"></div>
+    Trending
+</div>
+<div class="side-bar-list" class="{{router.url === '/subscriptions' ? 'active':''}}" (click)="validateUserSubPage()">
+    <div class="icon" [inlineSVG]="'./assets/icons/subscription.svg'"></div>
+    Subscriptions
+</div>
+<div class="side-bar-list" routerLinkActive="active" [routerLink]="['/membership']">
+    <div class="icon" [inlineSVG]="'./assets/icons/membership.svg'"></div>
+    Membership
+</div>
+<div *ngIf='ss.queue.length > 0'>
+    <hr>
+    <div class="side-bar-list" (click)='goQueue()'>
+        Queue
+    </div>
+</div>
+<hr />
+<div class="side-bar-title-list">
+    Video Category
+</div>
+<div class="side-bar-list" routerLinkActive="active" [routerLink]="['/category/', 'music']">
+    <div class="icon" [inlineSVG]="'./assets/icons/music.svg'"></div>
+    Music
+</div>
+<div class="side-bar-list" routerLinkActive="active" [routerLink]="['/category/', 'sport']">
+    <div class="icon" [inlineSVG]="'./assets/icons/sport.svg'"></div>
+    Sport
+</div>
+<div class="side-bar-list" routerLinkActive="active" [routerLink]="['/category/', 'gaming']">
+    <div class="icon" [inlineSVG]="'./assets/icons/game.svg'"></div>
+    Gaming
+</div>
+<div class="side-bar-list" routerLinkActive="active" [routerLink]="['/category/', 'entertainment']">
+    <div class="icon" [inlineSVG]="'./assets/icons/entertainment.svg'"></div>
+    Entertainment
+</div>
+<div class="side-bar-list" routerLinkActive="active" [routerLink]="['/category/', 'news']">
+    <div class="icon" [inlineSVG]="'./assets/icons/news.svg'"></div>
+    News
+</div>
+<div class="side-bar-list" routerLinkActive="active" [routerLink]="['/category/', 'travel']">
+    <div class="icon" [inlineSVG]="'./assets/icons/travel.svg'"></div>
+    Travel
+</div>
+<div *ngIf="ss.isLogged && db.playlists.length > 0">
+    <hr />
+    <div class="side-bar-title-list">
+        Video Playlist Library
+    </div>
+    <div class="content">
+        <div *ngFor="let creator of db.playlists, let i = index">
+            <app-playlistside *ngIf="i<(pointPlaylist)" class="side-bar-list" [pl]="creator"></app-playlistside>
+        </div>
+    </div>
+    <div class="side-bar-list" (click)='showHidePlaylist()'>
+        <div class="icon" [inlineSVG]="'./assets/icons/all-playlist.svg'"></div>
+        All Playlist Library
+    </div>
+</div>
+<div *ngIf="ss.isLogged && db.channelSubs.length > 0">
+    <hr />
+    <div class="side-bar-title-list">
+        Subscribed Channel
+    </div>
+    <div class="content">
+        <div *ngFor="let creator of db.channelSubs, let i = index">
+            <app-channelside *ngIf="i<(pointChannel)" class="side-bar-list" [cha]="creator"></app-channelside>
+        </div>
+    </div>
+    <div class="side-bar-list" (click)="showHideChannel()">
+        <div class="icon" [inlineSVG]="'./assets/icons/all-channel.svg'"></div>
+        All Subscribed Channel
+    </div>
+</div>
+<hr />
+<div class="side-bar-link-list">
+    <a href="https://www.youtube.com/t/contact_us" target="_blank">About Us</a>
+</div>
+<div class="side-bar-link-list">
+    <a href="https://www.youtube.com/howyoutubeworks/policies/copyright/" target="_blank">Copyright</a>
+</div>
+<div class="side-bar-link-list">
+    <a href="https://www.youtube.com/t/terms" target="_blank">Terms</a>
+</div>
+<div class="side-bar-link-list">
+    <a href="https://policies.google.com/privacy" target="_blank">Privacy</a>
+</div>
+<div class="side-bar-link-list">
+    <a href="https://www.youtube.com/howyoutubeworks/policies/community-guidelines/" target="_blank">Policies</a>
+</div>
+<div class="s-footer">
+    &copy; 2020 DY20-1
+</div>

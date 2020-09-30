@@ -1,0 +1,155 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  .grid-item {
+    padding: 25px;
+    .flex-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 400px;
+        height: 250px;
+        padding-bottom: 10px;
+      }
+      button {
+        border: none;
+        width: 70%;
+        color: white;
+        background-color: rgb(40, 40, 40);
+        padding: 5px;
+      }
+      button:hover {
+        background-color: lightgreen;
+        transition: all 0.5s ease-in;
+        cursor: pointer;
+      }
+    }
+    .flex-right {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      h1 {
+        font-size: 18px;
+      }
+      img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-right: 30px;
+        cursor: pointer;
+        transition: transform 1s;
+      }
+      img:hover {
+        transform: scale(1.3);
+      }
+      .info {
+        display: flex;
+        align-items: center;
+        .deco {
+          cursor: pointer;
+        }
+        .deco:hover {
+          color: red;
+          transition: all 1s ease-in;
+        }
+      }
+      button {
+        border: none;
+        padding: 8px;
+        cursor: pointer;
+      }
+      .btnS {
+        color: white;
+        background-color: red;
+      }
+      .btnU {
+        color: red;
+        background-color: white;
+      }
+      button:hover {
+        background-color: lightgreen;
+        color: black;
+        transition: all 0.5s ease-in;
+      }
+      .btn-special {
+        padding: 5px;
+        font-size: 12px;
+        border-radius: 5px;
+        color: white;
+        background-color: rgb(40, 40, 40);
+        cursor: pointer;
+        margin-left: 3px;
+      }
+    }
+    .sort {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      button {
+        cursor: pointer;
+        width: 25%;
+        padding: 5px;
+        border: none;
+        background-color: transparent;
+        border-bottom: solid 4px transparent;
+        color: white;
+        &.active {
+          border-bottom: solid 4px red;
+        }
+      }
+      button:hover {
+        background-color: rgb(40, 40, 40);
+        transition: all 0.5s ease-in;
+      }
+    }
+  }
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.icon:hover {
+  color: lightgreen;
+  transition: all 0.5s ease-in;
+  cursor: pointer;
+}
+
+.desc {
+  flex: 1;
+}
+
+input[type="text"] {
+  border-top-color: black;
+  border-left-color: black;
+  border-right-color: black;
+  background-color: black;
+  width: 100%;
+  font-size: 16px;
+  color: white;
+}
+
+input[type="text"]:focus {
+  color: white;
+  width: 100%;
+  border-bottom-color: red;
+  transition: all 1s ease-in;
+}
+
+textarea {
+  border-color: grey;
+  background-color: black;
+  width: 100%;
+  font-size: 16px;
+  color: white;
+}
+textarea:focus {
+  color: white;
+  width: 100%;
+  border: solid 1px red;
+  transition: all 1s ease-in;
+}

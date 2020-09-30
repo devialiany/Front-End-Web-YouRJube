@@ -1,0 +1,33 @@
+<div class="main">
+    <div>
+        <img src='{{ replies.creator.photo_profile }}' alt="">
+        <!-- <img src="./../../../../../assets/icons/account.png" alt=""> -->
+    </div>
+    <div>
+        <div class="main-info">
+            <div>
+                {{ replies.creator.name }}
+            </div>
+            <div>
+                &nbsp; &bull; &nbsp;{{replies.date_upload}}
+            </div>
+        </div>
+        <div>
+            <p>{{ replies.content }}</p>
+            <div class="box-btn">
+                <div class="btn-items">
+                    <div class="icon" [inlineSVG] = "'./assets/icons/like.svg'"></div>
+                    <div>
+                        &nbsp; 0
+                    </div>
+                </div>
+                <div class="btn-items">
+                    <div class="icon" [inlineSVG] = "'./assets/icons/dislike.svg'"></div>
+                    <div>
+                        &nbsp; 0
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

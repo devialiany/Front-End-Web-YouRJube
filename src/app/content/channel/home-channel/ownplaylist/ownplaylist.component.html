@@ -1,0 +1,13 @@
+<div class="header">
+    <div>
+        Playlist Library
+    </div>
+    <div>
+        <Button (click)='goTo()'>See All Playlist</Button>
+    </div>
+</div>
+<div class="content">
+    <div *ngFor="let playlist of playlists">
+        <app-play-list [playlist]='playlist'></app-play-list>
+    </div>
+</div>

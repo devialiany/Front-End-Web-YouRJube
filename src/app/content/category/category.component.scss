@@ -1,0 +1,16 @@
+.header{
+    padding: 18px;
+    font-size: 18px;
+    color: red;
+    font-weight: bold;
+}
+.box{
+    display: flex;
+    justify-content: center;
+}
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 12px;
+}

@@ -1,0 +1,92 @@
+<div class="grid-container">
+    <div class="grid-item">
+        <div class="flex-item">
+            <div *ngIf='db.plyActive.length == 0'>
+                <img src="{{photo_thumbnail}}" alt="">
+            </div>
+            <div *ngIf='db.plyActive.length > 0'>
+                <img src="{{db.plyActive[0].photo_thumbnail}}" alt="">
+            </div>
+        </div>
+        <div class="flex-item">
+            <button (click)='playAll()'>Play All</button>
+        </div>
+        <div *ngIf='editT' class="flex-right">
+            <input type="text" [(ngModel)]='title'>
+            <div (click)='changeTitle()' class="icon" [inlineSVG]="'./assets/icons/send.svg'"></div>
+        </div>
+        <div *ngIf='!editT' class="flex-right">
+            <h1>{{title}}</h1>
+            <div *ngIf='ss.isLogged && ss.creator_id == cid' class="icon" (click)='editTitle()'
+                [inlineSVG]="'./assets/icons/edit.svg'"></div>
+        </div>
+        <div class="flex-right">
+            {{db.plyActive.length}} video(s)&nbsp; &bull; &nbsp;{{viewer}} view(s)&nbsp; &bull; &nbsp;Last updated on
+            {{date}}
+        </div>
+        <div>
+            <select [disabled]='!(ss.isLogged && ss.creator_id == cid)' [(ngModel)]='type' (change)='setType(type)'>
+                <option value="1">Private</option>
+                <option value="2">Public</option>
+            </select>
+        </div>
+        <div class="flex-right">
+            <button (click)='randomPlay()'>Random Play</button>
+            <button (click)='showModalShare()'>Share</button>
+        </div>
+        <div class="flex-right">
+            <div *ngIf='btnUserSavedPlaylist'>
+                <button class="btn-special" (click)='addToUserPlaylist()' *ngIf='!btnRemoveSaved'>Add To Saved
+                    Playlist</button>
+                <button class="btn-special" (click)='removeToUserPlaylist()' *ngIf='btnRemoveSaved'>Remove From Saved
+                    Playlist</button>
+            </div>
+            <div *ngIf='!btnUserSavedPlaylist'>
+                <button class="btn-special" (click)='removeMyPlaylist()' *ngIf='btnRemoveMyPlaylist'>Remove From My
+                    Playlist</button>
+                <button class="btn-special" (click)='removeAllVideo()' *ngIf='btnRemoveMyPlaylist'>Remove All
+                    Video</button>
+            </div>
+        </div>
+        <hr>
+        <div *ngIf='!editD' class="flex-right">
+            <div class="desc">
+                {{description}}
+            </div>
+            <div *ngIf='ss.isLogged && ss.creator_id == cid' (click)='editDesc()' class="icon"
+                [inlineSVG]="'./assets/icons/edit.svg'"></div>
+        </div>
+        <div *ngIf='editD' class="flex-right">
+            <textarea cols="20" rows="5" [(ngModel)]='description'></textarea>
+            <div (click)='changeDesc()' class="icon" [inlineSVG]="'./assets/icons/send.svg'"></div>
+        </div>
+        <hr>
+        <div class="flex-right">
+            <div class="info">
+                <img (click)='goChannel()' src="{{cphoto}}" alt="">
+                <div class="deco" (click)='goChannel()'>
+                    {{cname}}
+                </div>
+            </div>
+            <div *ngIf='user'>
+                <button class="btnS" *ngIf='btnSubs' (click)='subscribeChannel()'>Subcribe</button>
+                <button class="btnU" *ngIf='!btnSubs' (click)='unsubscribeChannel()'>Unsubcribe</button>
+            </div>
+        </div>
+    </div>
+    <div class="grid-item">
+        <div class="sort">
+            <button class="{{bAddO ? 'active':''}}" (click)='sortAllO()'>Date Added (Oldest)</button>
+            <button class="{{bAddN ? 'active':''}}" (click)='sortAllN()'>Date Added (Newest)</button>
+            <button class="{{bPubO ? 'active':''}}" (click)='sortPublishO()'>Date Published (Newest)</button>
+            <button class="{{bPubN ? 'active':''}}" (click)='sortPublishN()'>Date Published (Oldest)</button>
+            <button class="{{bPop ? 'active':''}}" (click)='sortPopular()'>Popularity</button>
+        </div>
+        <div *ngIf='db.plyActive.length > 0'>
+            <div *ngFor="let video of db.plyActive, let i = index">
+                <app-tab-playlist *ngIf="i<(lastKey)" [vid]="video"></app-tab-playlist>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer"></div>
